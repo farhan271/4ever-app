@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "MyNewProject",
-    "slug": "MyNewProject",
+    "name": "Global Skills Pro",
+    "slug": "GlobalSkillsPro",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/appicon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -19,13 +19,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.farhan_271.GlobalSkillsPro"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "main": "node_modules/expo/AppEntry.js" 
+    "main": "node_modules/expo/AppEntry.js",
+    "extra": {
+      "eas": {
+        "projectId": "27f70762-2861-4bff-bab5-f54a28c7caee"
+      }
+    }
   }
 }
