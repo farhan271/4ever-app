@@ -4,7 +4,6 @@ import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { Ionicons } from '@expo/vector-icons';
-import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const Tab = createBottomTabNavigator();
@@ -14,13 +13,13 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={{
         tabBarShowLabel: true, // Show labels for the tabs
-        tabBarLabelStyle: { color: 'white' },
+        tabBarLabelStyle: { color: 'white', fontWeight: 'bold' }, // Bold tab labels
         tabBarActiveTintColor: 'white', // Active icon color
         tabBarInactiveTintColor: 'white', // Inactive icon color
         headerShown: false, // Hide header in tab screens if desired
         tabBarBackground: () => (
           <LinearGradient
-            colors={['#0085C1', '#00BDDA']}
+            colors={['#FFD1A1', '#FF8B00']}
             style={{ flex: 1 }}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}

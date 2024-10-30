@@ -4,11 +4,10 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  TouchableOpacity,
-  Linking,
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { WebView } from 'react-native-webview';
 
 const { width } = Dimensions.get('window');
 
@@ -17,19 +16,19 @@ const courses = [
   {
     id: '1',
     name: 'The YouTube Business Blueprint By Magnates Media',
-    videoLink: 'https://youtu.be/example1', // Example link
+    videoLink: 'https://www.youtube.com/embed/QusJ4fpWQwA', // Embed URL format
     addedOn: '2024-10-10 11:08',
   },
   {
     id: '2',
     name: 'Digital Marketing - Beginner to Advanced',
-    videoLink: 'https://youtu.be/example2', // Example link
+    videoLink: 'https://www.youtube.com/embed/QusJ4fpWQwA', // Embed URL format
     addedOn: '2024-09-15 09:30',
   },
   {
     id: '3',
     name: 'Marketing full course',
-    videoLink: 'https://youtu.be/example3', // Example link
+    videoLink: 'https://www.youtube.com/embed/QusJ4fpWQwA', // Embed URL format
     addedOn: '2024-08-12 15:45',
   },
 ];
@@ -38,7 +37,7 @@ const courses = [
 const CourseItem = ({ course }) => (
   <View style={styles.card}>
     <View style={styles.cardRow}>
-      <Ionicons name="book-outline" size={20} color="#0085C1" style={styles.icon} />
+      <Ionicons name="book-outline" size={20} color="#FF8B00" style={styles.icon} />
       <Text style={styles.courseName}>{course.name}</Text>
     </View>
 
@@ -47,12 +46,14 @@ const CourseItem = ({ course }) => (
       <Text style={styles.text}>{course.addedOn}</Text>
     </View>
 
-    <TouchableOpacity
-      style={styles.watchButton}
-      onPress={() => Linking.openURL(course.videoLink)}
-    >
-      <Text style={styles.watchButtonText}>Watch Video</Text>
-    </TouchableOpacity>
+    {/* Embedded YouTube Video */}
+    <View style={styles.videoContainer}>
+      <WebView
+        style={styles.video}
+        source={{ uri: course.videoLink }}
+        allowsFullscreenVideo
+      />
+    </View>
   </View>
 );
 
@@ -69,30 +70,30 @@ const Courses = () => (
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#FFF3E0', // Lightest shade of #FF8B00 for background
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#FFE0B2', // Light version of #FF8B00 for card background
     borderRadius: 10,
     padding: 15,
-    marginBottom: 15,
+    marginBottom: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 4,
     width: width - 40,
     alignSelf: 'center',
   },
   cardRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
   courseName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: '#FF8B00',
     flexShrink: 1,
   },
   text: {
@@ -102,18 +103,23 @@ const styles = StyleSheet.create({
   icon: {
     marginRight: 8,
   },
-  watchButton: {
+  videoContainer: {
+    width: '100%',
+    height: 200,
     marginTop: 10,
-    alignSelf: 'flex-start',
-    backgroundColor: '#0085C1',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 5,
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#FF8B00',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 3,
   },
-  watchButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+  video: {
+    flex: 1,
+    borderRadius: 10,
   },
 });
 

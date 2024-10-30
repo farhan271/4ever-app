@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { Feather } from '@expo/vector-icons'; // Import Feather icons
+import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 
 export default function ProfileScreen() {
@@ -10,7 +10,7 @@ export default function ProfileScreen() {
   const [phoneNumber, setPhoneNumber] = useState('03495303460');
   const [address, setAddress] = useState('Dak Hana pallandri numb payprian tehsil pallandri zila sudnuti');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+  const [showPassword, setShowPassword] = useState(false);
   const [profileImage, setProfileImage] = useState(require('../assets/images/love.jpg'));
   const [imageName, setImageName] = useState('');
 
@@ -31,7 +31,7 @@ export default function ProfileScreen() {
     if (!result.canceled) {
       setProfileImage({ uri: result.assets[0].uri });
       const uriParts = result.assets[0].uri ? result.assets[0].uri.split('/') : [];
-      setImageName(uriParts[uriParts.length - 1] || ''); // Set image name from URI
+      setImageName(uriParts[uriParts.length - 1] || '');
     }
   };
 
@@ -113,7 +113,7 @@ export default function ProfileScreen() {
             placeholder="Enter Password"
             value={password}
             onChangeText={setPassword}
-            secureTextEntry={!showPassword} // Toggle secure text entry
+            secureTextEntry={!showPassword}
           />
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Feather name={showPassword ? "eye" : "eye-off"} size={20} color="gray" />
@@ -131,7 +131,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#f5f8fa',
+    backgroundColor: '#FFF3E0', // Lightest shade of #FF8B00 for background
   },
   topSection: {
     flexDirection: 'row',
@@ -145,11 +145,14 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#FF8B00', // Orange border for profile image
   },
   userName: {
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 10,
+    color: '#FF8B00', // Orange text for username
   },
   userEmail: {
     fontSize: 16,
@@ -157,14 +160,14 @@ const styles = StyleSheet.create({
   },
   userLevel: {
     fontSize: 16,
-    color: 'green',
+    color: '#4CAF50', // Green color for user level
   },
   detailsContainer: {
     flex: 1,
   },
   label: {
     fontSize: 16,
-    color: 'gray',
+    color: '#FF8B00', // Orange color for labels
     marginTop: 10,
   },
   value: {
@@ -176,20 +179,21 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#FF8B00', // Orange border color for input fields
     padding: 10,
     borderRadius: 5,
     marginTop: 10,
   },
   chooseFileButton: {
     padding: 10,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#FF8B00', // Orange button background
     alignItems: 'center',
     borderRadius: 5,
     marginTop: 10,
   },
   chooseFileText: {
-    color: '#333',
+    color: 'white',
+    fontWeight: 'bold',
   },
   imageName: {
     fontSize: 14,
@@ -197,7 +201,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   updateButton: {
-    backgroundColor: '#0085C1',
+    backgroundColor: '#FF8B00', // Orange background for update button
     padding: 15,
     alignItems: 'center',
     borderRadius: 5,
@@ -212,7 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#FF8B00', // Orange border for password input container
     borderRadius: 5,
     marginTop: 10,
     paddingHorizontal: 10,
@@ -222,3 +226,4 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
 });
+

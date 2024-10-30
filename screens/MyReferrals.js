@@ -51,32 +51,32 @@ const MyReferrals = () => {
         renderItem={({ item }) => (
           <View style={styles.card}>
             <View style={styles.row}>
-              <FontAwesome name="user" size={16} color="#3498DB" style={styles.icon} />
+              <FontAwesome name="user" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>First Name:</Text>
               <Text style={styles.value}>{item.firstName}</Text>
             </View>
             <View style={styles.row}>
-              <Ionicons name="call" size={16} color="#3498DB" style={styles.icon} />
+              <Ionicons name="call" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>Contact:</Text>
               <Text style={styles.value}>{item.contact}</Text>
             </View>
             <View style={styles.row}>
-              <Ionicons name="mail" size={16} color="#3498DB" style={styles.icon} />
+              <Ionicons name="mail" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>Email:</Text>
               <Text style={styles.value}>{item.email}</Text>
             </View>
             <View style={styles.row}>
-              <Ionicons name="male-female" size={16} color="#3498DB" style={styles.icon} />
+              <Ionicons name="male-female" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>Gender:</Text>
               <Text style={styles.value}>{item.gender}</Text>
             </View>
             <View style={styles.row}>
-              <Ionicons name="medal" size={16} color="#3498DB" style={styles.icon} />
+              <Ionicons name="medal" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>Package:</Text>
               <Text style={styles.value}>{item.package}</Text>
             </View>
             <View style={styles.row}>
-              <Ionicons name="cash" size={16} color="#3498DB" style={styles.icon} />
+              <Ionicons name="cash" size={16} color="#FF8B00" style={styles.icon} />
               <Text style={styles.label}>Amount:</Text>
               <Text style={styles.value}>{item.amount}</Text>
             </View>
@@ -110,23 +110,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#FFF3E0', // Lightest shade of orange
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#2C3E50',
+    color: '#FF8B00', // Orange color for title
     marginBottom: 15,
     textAlign: 'center',
   },
-  // Styles for the top-right referral link button
   referralButton: {
     position: 'absolute',
     top: 20,
     right: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#28A745',
+    backgroundColor: '#FF8B00', // Orange color for button
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 5,
@@ -157,19 +156,19 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: 'bold',
-    color: '#2C3E50',
+    color: '#555', // Darker gray for labels
     fontSize: 14,
     width: width * 0.25,
   },
   value: {
     fontSize: 14,
-    color: '#34495E',
+    color: '#666', // Gray for values
   },
   viewButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3498DB',
+    backgroundColor: '#FF8B00', // Orange color for view button
     borderRadius: 8,
     paddingVertical: 10,
     marginTop: 15,
@@ -197,6 +196,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    color: '#FF8B00', // Orange color for modal title
   },
   linkInput: {
     width: '100%',
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   copyButton: {
-    backgroundColor: '#3498DB',
+    backgroundColor: '#FF8B00', // Orange color for copy button
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 5,

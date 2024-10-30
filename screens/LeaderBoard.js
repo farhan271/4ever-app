@@ -27,21 +27,20 @@ const topUsers = [
 
 // Render each user row
 const UserItem = ({ user }) => (
-    <View style={styles.userCard}>
-      <View style={styles.userInfo}>
-        <Image source={require('../assets/images/love.jpg')} style={styles.avatar} />
-        <Text style={styles.userName}>
-          {user.name.length > 14 
-            ? `${user.name.slice(0, 14)}\n${user.name.slice(14)}` 
-            : user.name}
-        </Text>
-      </View>
-      <View style={styles.rankBadge}>
-        <Text style={styles.rankText}>Top {user.rank}</Text>
-      </View>
+  <View style={styles.userCard}>
+    <View style={styles.userInfo}>
+      <Image source={require('../assets/images/love.jpg')} style={styles.avatar} />
+      <Text style={styles.userName}>
+        {user.name.length > 14
+          ? `${user.name.slice(0, 14)}\n${user.name.slice(14)}`
+          : user.name}
+      </Text>
     </View>
-  );
-  
+    <View style={styles.rankBadge}>
+      <Text style={styles.rankText}>Top {user.rank}</Text>
+    </View>
+  </View>
+);
 
 const LeaderBoard = () => (
   <View style={styles.container}>
@@ -60,20 +59,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 20,
-    backgroundColor: '#f0f4f8',
+    backgroundColor: '#FFF3E0', // Lightest shade of #FF8B00 for background
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 15,
-    color: '#333',
+    color: '#FF8B00', // Orange color for title
   },
   userCard: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#FFE0B2', // Light version of #FF8B00 for card background
     padding: 15,
     marginVertical: 8,
     borderRadius: 12,
@@ -94,20 +93,22 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     marginRight: 12,
+    borderWidth: 2,
+    borderColor: '#FF8B00', // Orange border for avatar
   },
   userName: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: '#FF8B00', // Orange color for username
   },
   rankBadge: {
-    backgroundColor: '#FF6347',
+    backgroundColor: '#FF8B00', // Orange badge background
     paddingVertical: 8,
     paddingHorizontal: 15,
     borderRadius: 20,
-    shadowColor: '#FF6347',
+    shadowColor: '#FF8B00',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
+    shadowOpacity: 0.3,
     shadowRadius: 5,
   },
   rankText: {

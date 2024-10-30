@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Animated,
+  Image,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -14,11 +16,27 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 export default function ForgotPasswordScreen({ navigation }) {
   const [email, setEmail] = useState('');
 
+  // Pulse animation for logo
+  const pulse = new Animated.Value(1);
+  Animated.loop(
+    Animated.sequence([
+      Animated.timing(pulse, {
+        toValue: 1.2,
+        duration: 1500,
+        useNativeDriver: true,
+      }),
+      Animated.timing(pulse, {
+        toValue: 1,
+        duration: 1500,
+        useNativeDriver: true,
+      }),
+    ])
+  ).start();
+
   const handleForgotPassword = () => {
     if (email) {
-      // Simulate sending a password reset request
-      Alert.alert('Password reset link sent to your email!');
-      navigation.navigate('Login'); // Navigate back to Login screen after sending email
+      Alert.alert('Verification link sent to your email!');
+      navigation.navigate('Login');
     } else {
       Alert.alert('Please enter your email address');
     }
@@ -26,14 +44,27 @@ export default function ForgotPasswordScreen({ navigation }) {
 
   return (
     <LinearGradient
-      colors={['#00BCD9', '#0185C1']}
+      colors={['#FF8B00', '#5C5C5C']}
       style={styles.container}
     >
+      <View style={styles.logoContainer}>
+        <View style={styles.outerCircle}>
+          <Animated.View style={[styles.innerCircle, { transform: [{ scale: pulse }] }]}>
+            <LinearGradient
+              colors={['#FFF5E5', '#FFE4C4']}
+              style={styles.logoBackground}
+            >
+              <Image source={require('../assets/images/icon.png')} style={styles.logo} />
+            </LinearGradient>
+          </Animated.View>
+        </View>
+      </View>
+
       <View style={styles.formContainer}>
         <Text style={styles.title}>Forgot Password</Text>
         
         <View style={styles.inputContainer}>
-          <Icon name="envelope" size={20} color="#0185C1" style={styles.inputIcon} />
+          <Icon name="envelope" size={20} color="#FF8B00" style={styles.inputIcon} />
           <TextInput
             placeholder="Email"
             placeholderTextColor="#ddd"
@@ -44,7 +75,12 @@ export default function ForgotPasswordScreen({ navigation }) {
         </View>
 
         <TouchableOpacity style={styles.button} onPress={handleForgotPassword}>
-          <Text style={styles.buttonText}>Send Reset Link</Text>
+          <LinearGradient
+            colors={['#FF8B00', '#FFAE42']}
+            style={styles.buttonGradient}
+          >
+            <Text style={styles.buttonText}>Verify Email</Text>
+          </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.linkContainer}>
@@ -61,9 +97,43 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
   },
+  logoContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  outerCircle: {
+    width: 190,
+    height: 190,
+    borderRadius: 95,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerCircle: {
+    width: 170,
+    height: 170,
+    borderRadius: 85,
+    borderColor: '#FF8B00',
+    borderWidth: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logoBackground: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+  },
   formContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 24,
@@ -74,7 +144,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: '#0185C1',
+    borderColor: '#FF8B00',
     borderWidth: 1,
     borderRadius: 8,
     marginVertical: 10,
@@ -90,11 +160,14 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   button: {
-    backgroundColor: '#0185C1',
-    padding: 15,
-    borderRadius: 8,
     marginTop: 20,
     width: '100%',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  buttonGradient: {
+    paddingVertical: 15,
+    borderRadius: 8,
     alignItems: 'center',
   },
   buttonText: {
@@ -106,6 +179,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   linkText: {
-    color: '#ADD8E6',
+    color: '#FF8B00',
   },
 });

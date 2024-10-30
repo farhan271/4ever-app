@@ -1,7 +1,6 @@
-// HomeTab.js
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Icons for arrows
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   return (
@@ -53,20 +52,20 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15, // Reduced padding for compact design
-    backgroundColor: '#F2F7F8', // Light background color
+    padding: 15,
+    backgroundColor: '#FFF3E0', // Lightest shade of #FF8B00 for background
   },
   profileContainer: {
     alignItems: 'center',
-    marginBottom: 20, // Slightly smaller margin
+    marginBottom: 20,
   },
   profileImage: {
-    width: 150,  // Increased width
-    height: 150, // Increased height
-    borderRadius: 75, // Half of width/height for a perfect circle
-    borderWidth: 5,   // Thicker border for emphasis
-    borderColor: '#0185C1',
-    marginBottom: 5, // Slightly increased bottom margin for spacing
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    borderWidth: 5,
+    borderColor: '#FF8B00', // Profile image border color
+    marginBottom: 5,
   },
   profileName: {
     fontSize: 20,
@@ -80,37 +79,36 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   statCard: {
-    backgroundColor: '#fff',
-    padding: 15, // Compact card padding
+    backgroundColor: '#FFE0B2', // Light version of #FF8B00 for card background
+    padding: 15,
     borderRadius: 10,
-    width: '48%', // Compact width for smaller cards
-    height: 120, // Fixed height for uniform cards
-    marginVertical: 10, // Reduced margin
-    alignItems: 'center', // Align content to center horizontally
-    justifyContent: 'center', // Align content to center vertically
+    width: '48%',
+    height: 120,
+    marginVertical: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 8,
-    elevation: 4, // Subtle shadow for Android
-    borderColor: '#0185C1', // Border color
-    borderWidth: 2, // Border width for visibility
+    elevation: 4,
+    borderColor: '#FFFFFF', // Card border color
+    borderWidth: 2,
   },
   statLabel: {
     fontSize: 16,
     color: '#666',
     marginBottom: 5,
-    // Center-align the label text
   },
   valueRow: {
-    flexDirection: 'row', // Row layout for icon and value
-    alignItems: 'center', // Align icon and value vertically centered
-    justifyContent: 'center', // Center-align the entire row horizontally
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   statValue: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#0185C1',
-    marginLeft: 8, // Space between arrow and value
+    color: '#FF8B00', // Stat value color
+    marginLeft: 8,
   },
 });

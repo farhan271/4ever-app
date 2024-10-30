@@ -20,7 +20,7 @@ const Community = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>4evers Community</Text>
+      <Text style={styles.header}>GSP Community</Text>
       <View style={styles.grid}>
         {socialMediaData.map(({ name, icon, gradient, description }, index) => {
           const scaleAnim = new Animated.Value(1);
@@ -85,13 +85,13 @@ const socialMediaData = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#FFF3E0', // Lightest shade of orange
     padding: 20,
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#2C3E50',
+    color: '#FF8B00', // Orange color for header
     textAlign: 'center',
     marginBottom: 20,
   },

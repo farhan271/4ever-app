@@ -1,4 +1,3 @@
-// screens/SettingsScreen.js
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Switch, TouchableOpacity } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
@@ -16,16 +15,18 @@ const SettingsScreen = () => {
         <Text style={styles.sectionTitle}>General</Text>
 
         <View style={styles.row}>
-          <Ionicons name="moon" size={24} color="#666" />
+          <Ionicons name="moon" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Dark Mode</Text>
           <Switch
             value={isDarkModeEnabled}
             onValueChange={(value) => setDarkModeEnabled(value)}
+            thumbColor={isDarkModeEnabled ? '#FF8B00' : '#f4f3f4'}
+            trackColor={{ false: '#767577', true: '#FFCC99' }}
           />
         </View>
 
         <TouchableOpacity style={styles.row}>
-          <MaterialIcons name="language" size={24} color="#666" />
+          <MaterialIcons name="language" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Language</Text>
           <Text style={styles.rowTextSecondary}>English</Text>
         </TouchableOpacity>
@@ -36,11 +37,13 @@ const SettingsScreen = () => {
         <Text style={styles.sectionTitle}>Notifications</Text>
 
         <View style={styles.row}>
-          <Ionicons name="notifications" size={24} color="#666" />
+          <Ionicons name="notifications" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Enable Notifications</Text>
           <Switch
             value={isNotificationsEnabled}
             onValueChange={(value) => setNotificationsEnabled(value)}
+            thumbColor={isNotificationsEnabled ? '#FF8B00' : '#f4f3f4'}
+            trackColor={{ false: '#767577', true: '#FFCC99' }}
           />
         </View>
       </View>
@@ -50,17 +53,17 @@ const SettingsScreen = () => {
         <Text style={styles.sectionTitle}>Account</Text>
 
         <TouchableOpacity style={styles.row}>
-          <Ionicons name="person" size={24} color="#666" />
+          <Ionicons name="person" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Account Info</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.row}>
-          <Ionicons name="lock-closed" size={24} color="#666" />
+          <Ionicons name="lock-closed" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Privacy Settings</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.row}>
-          <Ionicons name="log-out" size={24} color="#666" />
+          <Ionicons name="log-out" size={24} color="#FF8B00" />
           <Text style={styles.rowText}>Sign Out</Text>
         </TouchableOpacity>
       </View>
@@ -71,13 +74,13 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#FFF3E0', // Lightest shade of #FF8B00 for background
     padding: 20,
   },
   header: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#2C3E50',
+    color: '#FF8B00', // Orange color for header text
     textAlign: 'center',
     marginBottom: 20,
   },
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     paddingHorizontal: 10,
     paddingVertical: 15,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFE0B2', // Light version of #FF8B00 for card background
     borderRadius: 10,
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#333',
+    color: '#FF8B00', // Orange color for section titles
     marginBottom: 10,
   },
   row: {
@@ -105,7 +108,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 5,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#FFD1A1', // Lighter border color within sections
   },
   rowText: {
     flex: 1,
